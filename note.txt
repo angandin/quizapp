@@ -1,0 +1,30 @@
+{
+    "id": "q1",
+    "text": "Quanti anni ha Andrea?",
+    "options": [22, 29, 36, 42]
+},
+{
+    "id": "q1",
+    "text": "Che scuola ha fatto Andrea alle superiori?",
+    "options": ["Scientifico", "Classico", "Professionale ITIS", "Professionale Turistico"]
+},
+{
+    "id": "q1",
+    "text": "Che strumento suona Andrea?",
+    "options": ["Chitarra", "Basso", "Triangolo", "Basso tuba"]
+},
+{
+    "id": "q1",
+    "text": "Quanti teest di ammissione all'università ha fatto Andrea?",
+    "options": [1, 2, 3, 4]
+},
+{
+    "id": "q2",
+    "text": "Quanto è durato Andrea in IBM?",
+    "options": [22, 29, 36, 42]
+},
+{
+    "id": "q2",
+    "text": "Quale è stato il primo progetto di Andrea in Microsoft?",
+    "options": ["IoT", "SharePoint", "Hive on Azure", "PowerBI"]
+},

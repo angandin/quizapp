@@ -1,0 +1,14 @@
+{
+  "questions": [
+    {
+      "id": "q1",
+      "text": "Quanti tentativi ci ha messo Andrea a passare l'esame di ammissione?",
+      "options": ["1", "2", "3"]
+    },
+    {
+      "id": "q2",
+      "text": "Quante volte Andrea ha detto 'ci penso domani' prima di iniziare a studiare?",
+      "options": ["5", "10", "100"]
+    }
+  ]
+}

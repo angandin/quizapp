@@ -1,0 +1,4 @@
+flask>=3.0
+azure-eventhub>=5.11
+python-dotenv>=1.0
+gunicorn>=22.0

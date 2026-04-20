@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSA Quiz</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container" id="app">
+    <!-- Username page -->
+    <div id="page-username" class="page active">
+      <h1>Enter username</h1>
+      <input type="text" id="username-input" placeholder="Your name..." autocomplete="off" />
+      <button id="btn-username-next" class="btn" disabled>Next</button>
+    </div>
+
+    <!-- Question page (reused for each question) -->
+    <div id="page-question" class="page">
+      <h2 id="question-text"></h2>
+      <div id="options-container" class="options"></div>
+      <div class="button-row">
+        <button id="btn-send" class="btn" disabled>Send</button>
+        <button id="btn-next" class="btn" disabled>Next</button>
+      </div>
+    </div>
+
+    <!-- Thanks page -->
+    <div id="page-thanks" class="page">
+      <h1>Thanks</h1>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
