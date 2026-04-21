@@ -1,8 +1,11 @@
 (function () {
+  const ADMIN_USERNAME = "angadmin";
   let username = "";
   let questions = [];
   let currentIndex = 0;
   let selectedValue = null;
+  let hasSent = false;
+  let pollInterval = null;
 
   // DOM elements
   const pageUsername = document.getElementById("page-username");
@@ -28,6 +31,10 @@
     await loadQuestions();
     showPage(pageQuestion);
     renderQuestion();
+    // Start polling for non-admin users
+    if (username !== ADMIN_USERNAME) {
+      startPolling();
+    }
   });
 
   // --- Load questions from server ---
@@ -51,6 +58,7 @@
     questionText.textContent = q.text;
     optionsContainer.innerHTML = "";
     selectedValue = null;
+    hasSent = false;
     btnSend.disabled = true;
     btnNext.disabled = true;
 
@@ -81,6 +89,7 @@
     if (selectedValue === null) return;
 
     btnSend.disabled = true;
+    hasSent = true;
 
     const q = questions[currentIndex];
     await sendAnswer(username, q.id, selectedValue);
@@ -90,7 +99,11 @@
       b.classList.add("locked");
     });
 
-    btnNext.disabled = false;
+    // Admin can always proceed immediately (their send advances the step)
+    if (username === ADMIN_USERNAME) {
+      btnNext.disabled = false;
+    }
+    // Non-admin: polling will enable Next when admin advances
   });
 
   // --- Next question or thanks ---
@@ -99,9 +112,26 @@
     if (currentIndex < questions.length) {
       renderQuestion();
     } else {
+      if (pollInterval) clearInterval(pollInterval);
       showPage(pageThanks);
     }
   });
+
+  // --- Polling for step control (non-admin users) ---
+  function startPolling() {
+    pollInterval = setInterval(async () => {
+      try {
+        const res = await fetch("/api/current-step");
+        const data = await res.json();
+        // allowed_step > currentIndex means admin has moved past this question
+        if (hasSent && data.allowed_step > currentIndex) {
+          btnNext.disabled = false;
+        }
+      } catch (e) {
+        // ignore polling errors
+      }
+    }, 2000);
+  }
 
   // --- Send to backend ---
   async function sendAnswer(username, questionId, value) {

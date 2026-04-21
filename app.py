@@ -22,6 +22,10 @@ if connection_string and eventhub_name:
         connection_string, eventhub_name=eventhub_name
     )
 
+# Step control: only angadmin advances the global step
+ADMIN_USERNAME = "angadmin"
+allowed_step = 0  # 0 = first question, 1 = second question, etc.
+
 
 @app.route("/")
 def index():
@@ -48,6 +52,12 @@ def post_answer():
 
     payload = {"username": username, "question_id": question_id, "value": value}
 
+    # If angadmin sends, advance the allowed step
+    global allowed_step
+    if username == ADMIN_USERNAME:
+        allowed_step += 1
+        print(f"Admin advanced step to {allowed_step}")
+
     if producer_client:
         try:
             batch = producer_client.create_batch()
@@ -61,6 +71,11 @@ def post_answer():
         print(f"Event Hub not configured. Payload: {json.dumps(payload)}")
 
     return jsonify({"ok": True})
+
+
+@app.route("/api/current-step")
+def get_current_step():
+    return jsonify({"allowed_step": allowed_step})
 
 
 if __name__ == "__main__":

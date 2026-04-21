@@ -40,3 +40,9 @@ Redeploy after changes:
 ```bash
 az webapp up
 ```
+
+Restart the web app:
+
+```bash
+az webapp restart --name webapp-csa --resource-group RG_Angandin_CSA
+```
