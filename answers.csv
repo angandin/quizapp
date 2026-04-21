@@ -1,4 +1,7 @@
-question_id,question,answer
+question_id,question,expected_answer
 "q1","Quanti anni ha Andrea?","36"
 "q2","Che scuola ha fatto Andrea alle superiori?","Professionale Turistico"
-"q3","Quanti teest di ammissione all'università ha fatto Andrea?","3"
+"q3","Quanti test di ammissione all'università ha fatto Andrea?","3"
+"q4","Quale è stato il voto in Fisica di Andrea?","3"
+"q5","Quale è stata la prima azienda in cui ha lavorato Andrea?","IBM"
+"q6","Quale è stato il primo progetto in Microsoft di Andrea?","SharePoint"
