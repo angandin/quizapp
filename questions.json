@@ -3,7 +3,7 @@
     {
     "id": "q1",
     "text": "Quanti anni ha Andrea?",
-    "options": ["22", "29", "36", "42"]
+    "options": ["22", "32", "36", "42"]
 },
 {
     "id": "q2",
@@ -12,8 +12,23 @@
 },
 {
     "id": "q3",
-    "text": "Quanti teest di ammissione all'università ha fatto Andrea?",
+    "text": "Quanti test di ammissione all'università ha fatto Andrea?",
     "options": ["1", "2", "3", "4"]
+},
+{
+    "id": "q4",
+    "text": "Quale è stato il voto in Fisica di Andrea?",
+    "options": ["3", "18", "29", "30L"]
+},
+{
+    "id": "q5",
+    "text": "Quale è stata la prima azienda in cui ha lavorato Andrea?",
+    "options": ["Deloitte", "IBM", "Starbucks", "Accenture"]
+},
+{
+    "id": "q6",
+    "text": "Quale è stato il primo progetto in Microsoft di Andrea?",
+    "options": ["Hive on Azure", "Power BI", "IoT Hub", "SharePoint"]
 }
   ]
 }
