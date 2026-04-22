@@ -1,5 +1,6 @@
 import os
 import json
+from time import time
 from flask import Flask, send_from_directory, jsonify, request
 from azure.eventhub import EventHubProducerClient, EventData
 from dotenv import load_dotenv
