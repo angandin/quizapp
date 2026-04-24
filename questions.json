@@ -8,7 +8,7 @@
 {
     "id": "q2",
     "text": "Che scuola ha fatto Andrea alle superiori?",
-    "options": ["Scientifico", "Classico", "Professionale ITIS", "Professionale Turistico"]
+    "options": ["Scientifico", "Classico", "Professionale ITIS", "Tecnico Turistico"]
 },
 {
     "id": "q3",
@@ -29,6 +29,16 @@
     "id": "q6",
     "text": "Quale è stato il primo progetto in Microsoft di Andrea?",
     "options": ["Hive on Azure", "Power BI", "IoT Hub", "SharePoint"]
+},
+{
+    "id": "q6",
+    "text": "Tornasse indietro, Andrea suonerebbe...",
+    "options": ["Pianoforte", "Basso", "Triangolo", "Violino"]
+},
+{
+    "id": "q7",
+    "text": "Il pranzo di natale solitamente Andrea lo faceva...",
+    "options": ["Ristorante", "Baita", "Sulle piste da sci", "Autogrill"]
 }
   ]
 }

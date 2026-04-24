@@ -124,3 +124,17 @@ input[type="text"]:focus {
   justify-content: center;
   gap: 1rem;
 }
+
+.big-title {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  color: #e94560;
+}
+
+.small-title {
+  text-align: left;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #e94560;
+  margin-bottom: 1.5rem;
+}

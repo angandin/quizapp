@@ -20,7 +20,7 @@ EVENTHUB_NAME=your-hub-name
 
 ```bash
 az login
-az webapp up --name webapp-csa --runtime "PYTHON:3.11" --sku B1
+az webapp up --name webapp-csa --runtime "PYTHON:3.11" --sku B1 --location italynorth
 ```
 
 Set startup command:
@@ -32,7 +32,7 @@ az webapp config set --name webapp-csa --resource-group RG_Angandin_CSA --startu
 Set Event Hub settings:
 
 ```bash
-az webapp config appsettings set --name webapp-csa --resource-group RG_Angandin_CSA --settings EVENTHUB_CONNECTION_STRING="<connection-string>" EVENTHUB_NAME="<hub-name>"
+az webapp config appsettings set --name webapp-csa --resource-group RG_Angandin_CSA --settings EVENTHUB_CONNECTION_STRING="Endpoint=sb://..." EVENTHUB_NAME="es_b5..."
 ```
 
 Redeploy after changes:
