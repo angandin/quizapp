@@ -53,12 +53,6 @@ def post_answer():
 
     payload = {"username": username, "question_id": question_id, "value": value}
 
-    # If angadmin sends, advance the allowed step
-    global allowed_step
-    if username == ADMIN_USERNAME:
-        allowed_step += 1
-        print(f"Admin advanced step to {allowed_step}")
-
     if producer_client:
         try:
             batch = producer_client.create_batch()
@@ -74,9 +68,31 @@ def post_answer():
     return jsonify({"ok": True})
 
 
+@app.route("/api/advance-step", methods=["POST"])
+def advance_step():
+    global allowed_step
+    allowed_step += 1
+    print(f"Admin advanced step to {allowed_step}")
+    return jsonify({"ok": True, "allowed_step": allowed_step})
+
+
 @app.route("/api/current-step")
 def get_current_step():
     return jsonify({"allowed_step": allowed_step})
+
+
+@app.route("/api/warmup", methods=["POST"])
+def warmup():
+    """Force the Event Hub AMQP connection open so the first real send is fast."""
+    if producer_client:
+        try:
+            batch = producer_client.create_batch()
+            # discard the batch – connection is now open
+            return jsonify({"ok": True, "status": "warmed up"})
+        except Exception as e:
+            print(f"Warmup error: {e}")
+            return jsonify({"ok": False, "error": str(e)}), 500
+    return jsonify({"ok": True, "status": "no Event Hub configured"})
 
 
 if __name__ == "__main__":

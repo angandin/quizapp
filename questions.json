@@ -31,12 +31,12 @@
     "options": ["Hive on Azure", "Power BI", "IoT Hub", "SharePoint"]
 },
 {
-    "id": "q6",
+    "id": "q7",
     "text": "Tornasse indietro, Andrea suonerebbe...",
     "options": ["Pianoforte", "Basso", "Triangolo", "Violino"]
 },
 {
-    "id": "q7",
+    "id": "q8",
     "text": "Il pranzo di natale solitamente Andrea lo faceva...",
     "options": ["Ristorante", "Baita", "Sulle piste da sci", "Autogrill"]
 }
