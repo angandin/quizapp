@@ -125,7 +125,14 @@
         const data = await res.json();
         // allowed_step > currentIndex means admin has moved past this question
         if (hasSent && data.allowed_step > currentIndex) {
-          btnNext.disabled = false;
+          // Auto-advance to the next question
+          currentIndex++;
+          if (currentIndex < questions.length) {
+            renderQuestion();
+          } else {
+            clearInterval(pollInterval);
+            showPage(pageThanks);
+          }
         }
       } catch (e) {
         // ignore polling errors
