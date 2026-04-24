@@ -22,8 +22,8 @@
 },
 {
     "id": "q5",
-    "text": "Quale è stata la prima azienda in cui ha lavorato Andrea?",
-    "options": ["Deloitte", "IBM", "Starbucks", "Accenture"]
+    "text": "Cosa vuol dire fare il cavaliere?",
+    "options": ["Presentarsi agli altri", "Preparare una targhetta con nome", "Difendere il regno", "Sistemare zaini e cappotti"]
 },
 {
     "id": "q6",
