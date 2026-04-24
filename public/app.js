@@ -29,6 +29,12 @@
     username = usernameInput.value.trim();
     if (!username) return;
     await loadQuestions();
+    // Warm up Event Hub connection in the background
+    fetch("/api/warmup", { method: "POST" }).catch(() => {});
+    // Hide Next button for non-admin users (navigation is centrally managed)
+    if (username !== ADMIN_USERNAME) {
+      btnNext.style.display = "none";
+    }
     showPage(pageQuestion);
     renderQuestion();
     // Start polling for non-admin users
@@ -69,12 +75,21 @@
       box.addEventListener("click", () => selectOption(box, opt));
       optionsContainer.appendChild(box);
     });
+
+    // Admin: auto-select first option and auto-send after a short delay
+    if (username === ADMIN_USERNAME) {
+      const firstBox = optionsContainer.querySelector(".option-box");
+      if (firstBox) {
+        selectOption(firstBox, q.options[0]);
+        setTimeout(() => btnSend.click(), 300);
+      }
+    }
   }
 
   // --- Select an option ---
   function selectOption(box, value) {
     // Don't allow changes after send
-    if (btnNext.disabled === false) return;
+    if (hasSent) return;
 
     document.querySelectorAll(".option-box").forEach((b) => {
       b.classList.remove("selected");
@@ -107,7 +122,11 @@
   });
 
   // --- Next question or thanks ---
-  btnNext.addEventListener("click", () => {
+  btnNext.addEventListener("click", async () => {
+    // Admin: advance the global step so all users move forward
+    if (username === ADMIN_USERNAME) {
+      await fetch("/api/advance-step", { method: "POST" });
+    }
     currentIndex++;
     if (currentIndex < questions.length) {
       renderQuestion();

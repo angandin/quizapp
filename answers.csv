@@ -1,9 +1,9 @@
 question_id,question,expected_answer
 "q1","Quanti anni ha Andrea?","36"
-"q2","Che scuola ha fatto Andrea alle superiori?","Professionale Turistico"
+"q2","Che scuola ha fatto Andrea alle superiori?","Tecnico Turistico"
 "q3","Quanti test di ammissione all'università ha fatto Andrea?","3"
 "q4","Quale è stato il voto in Fisica di Andrea?","3"
-"q5","Cosa è un cavaliere?","Preparare una targhetta con nome"
+"q5","Cosa vuol dire fare il cavaliere?","Preparare una targhetta con nome"
 "q6","Quale è stato il primo progetto in Microsoft di Andrea?","SharePoint"
 "q7","Tornasse indietro, Andrea suonerebbe...","Basso"
 "q8","Il pranzo di natale solitamente Andrea lo faceva...","Autogrill"
